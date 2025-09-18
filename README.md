@@ -4,9 +4,7 @@ run `./gradlew compileGroovy` to produce the error
 
 # Example output
 
-        > Configure project :
-        Micronaut Support Detected for issue-grails-compile-static
-        
+        ./gradlew clean compileGroovy --no-build-cache
         > Task :compileGroovy FAILED
         
         FAILURE: Build failed with an exception.

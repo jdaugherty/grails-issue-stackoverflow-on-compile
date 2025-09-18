@@ -57,10 +57,6 @@ dependencies {
     runtimeOnly "com.zaxxer:HikariCP"
     runtimeOnly "org.fusesource.jansi:jansi"
 
-    // Micronaut specific
-    implementation "org.apache.grails:grails-micronaut"
-    implementation "io.micronaut:micronaut-http-client"
-
     implementation "io.fabric8:kubernetes-client:7.4.0"
 }
 
