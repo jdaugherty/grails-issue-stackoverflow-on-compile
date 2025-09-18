@@ -1,0 +1,71 @@
+buildscript {
+    repositories {
+        maven {
+
+            url = 'https://repo.grails.org/grails/restricted'
+
+        }
+    }
+    dependencies { // Not Published to Gradle Plugin Portal
+        classpath platform("org.apache.grails:grails-bom:$grailsVersion")
+        classpath "org.apache.grails:grails-gradle-plugins"
+    }
+}
+
+// Not Published to Gradle Plugin Portal
+apply plugin: "org.apache.grails.gradle.grails-web"
+apply plugin: "org.apache.grails.gradle.grails-gsp"
+
+group = "com.example"
+
+repositories {
+    maven {
+
+        url = 'https://repo.grails.org/grails/restricted'
+
+    }
+}
+
+dependencies {
+    profile "org.apache.grails.profiles:web"
+
+    implementation platform("org.apache.grails:grails-bom:$grailsVersion")
+    implementation "org.apache.grails:grails-core"
+    implementation "org.apache.grails:grails-data-hibernate5"
+    implementation "org.apache.grails:grails-databinding"
+    implementation "org.apache.grails:grails-events"
+    implementation "org.apache.grails:grails-async"
+    implementation "org.apache.grails:grails-cache"
+    implementation "org.apache.grails:grails-gsp"
+    implementation "org.apache.grails:grails-interceptors"
+    implementation "org.apache.grails:grails-layout"
+    implementation "org.apache.grails:grails-logging"
+    implementation "org.apache.grails:grails-rest-transforms"
+    implementation "org.apache.grails:grails-scaffolding"
+    implementation "org.apache.grails:grails-services"
+    implementation "org.apache.grails:grails-url-mappings"
+    implementation "org.apache.grails:grails-web-boot"
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-logging"
+    implementation "org.springframework.boot:spring-boot-starter-undertow"
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+
+    console "org.apache.grails:grails-console"
+
+    runtimeOnly "com.zaxxer:HikariCP"
+    runtimeOnly "org.fusesource.jansi:jansi"
+
+    // Micronaut specific
+    implementation "org.apache.grails:grails-micronaut"
+    implementation "io.micronaut:micronaut-http-client"
+
+    implementation "io.fabric8:kubernetes-client:7.4.0"
+}
+
+compileJava.options.release = 17
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
